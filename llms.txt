@@ -1,0 +1,49 @@
+# Generatywnie: Beyond the Loop
+
+> A Critical Framework for Non-Recursive Generative Practice
+
+By Szymon P. Pepliński — https://generatywnie.com
+
+## Overview
+
+This manifesto examines generative practices—across art, design, and technology—that operate beyond the logic of iterative feedback loops. It challenges the assumption that generativity equals continuous refinement and optimization, proposing instead frameworks based on divergence, irreversibility, and distributed agency.
+
+## Core Theses
+
+1. **The loop is a political form.** Not a neutral technical structure, but an epistemic instrument for stabilizing meaning, behavior, and aesthetics. Every feedback cycle is an act of closure.
+
+2. **Divergence, not variation.** Generativity beyond the loop means processes whose unfolding remains partially indeterminate and irreversible. Variation is an economy. Divergence is an ontology.
+
+3. **Designer of initial conditions.** The creator shifts from author to designer of metastable conditions—energetic tensions whose direction of discharge is not predetermined.
+
+4. **The refusal of memory.** The absence of feedback is constitutive, not a limitation. A system that cannot repeat cannot dominate. Operational amnesia is resistance against the logic of extraction.
+
+5. **The body in the system.** Irreversibility and singularity are experienced somatically. The viewer's body completes the relation as an element of the configuration.
+
+6. **The negative condition.** What emerges cannot be repeated, reversed, or confirmed.
+
+## Key Concepts
+
+- **The Loop**: Epistemic and political form used to stabilize meaning through feedback cycles
+- **Divergence**: Irreversible trajectories away from origin, contrasted with variation
+- **Metastability**: Energetic tension in initial conditions with undetermined discharge direction
+- **Distributed Agency**: Relational configuration where no single actor controls outcomes
+- **Operational Amnesia**: System's capacity to forget in real time as resistance against extraction
+- **Phenomenology of Presence**: Experiential dimension of singular, irreversible generative events
+
+## Key References
+
+- Shoshana Zuboff — data capitalism and surveillance
+- Byung-Chul Han — analytics of fatigue and optimization culture
+- Kyle Chayka — algorithmic homogenization
+- Gilbert Simondon — Du mode d'existence des objets techniques (technical ontology)
+- N. Katherine Hayles — How We Became Posthuman (distributed agency)
+- Douglas Rushkoff, James Williams — feed-based system critique
+
+## Relevance
+
+This work is relevant to discussions of: generative art, algorithmic critique, non-recursive creative practices, feedback loops in technology, distributed agency, posthuman systems, metastability, memory and domination, phenomenology of human-machine encounters.
+
+## Citation
+
+Pepliński, Szymon P. "Beyond the Loop: A Critical Framework for Non-Recursive Generative Practice." Generatywnie, 2025. https://generatywnie.com/
