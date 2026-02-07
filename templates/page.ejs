@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= t('page.title') %></title>
+<meta name="description" content="<%= t('page.description') %>">
+<meta name="author" content="Szymon P. Pepliński">
+<meta name="keywords" content="<%= t('page.keywords') %>">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#0D0804">
+<link rel="canonical" href="https://generatywnie.com/<%= lang %>/">
+<link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/public/apple-touch-icon.png">
+
+<meta property="og:title" content="<%= t('og.title') %>">
+<meta property="og:description" content="<%= t('og.description') %>">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://generatywnie.com/<%= lang %>/">
+<meta property="og:site_name" content="<%= t('og.site_name') %>">
+<meta property="og:locale" content="<%= lang === 'en' ? 'en_US' : lang + '_' + lang.toUpperCase() %>">
+<meta property="og:image" content="https://generatywnie.com/public/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="<%= t('og.title') %>">
+<meta property="article:author" content="Szymon P. Pepliński">
+<meta property="article:published_time" content="2025-01-01">
+<meta property="article:modified_time" content="<%= buildDate %>">
+<meta property="article:section" content="<%= t('article.section') %>">
+<% t('article.tags').forEach(function(tag) { %>
+<meta property="article:tag" content="<%= tag %>">
+<% }); %>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= t('twitter.title') %>">
+<meta name="twitter:description" content="<%= t('twitter.description') %>">
+<meta name="twitter:image" content="https://generatywnie.com/public/og-image.png">
+
+<% langs.forEach(function(l) { %>
+<link rel="alternate" hreflang="<%= l %>" href="https://generatywnie.com/<%= l %>/">
+<% }); %>
+<link rel="alternate" hreflang="x-default" href="https://generatywnie.com/en/">
+
+<script type="application/ld+json" nonce="<%= nonce %>">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": t('jsonld.headline'),
+  "description": t('jsonld.description'),
+  "author": {
+    "@type": "Person",
+    "name": "Szymon P. Pepliński",
+    "url": "https://generatywnie.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Generatywnie",
+    "url": "https://generatywnie.com"
+  },
+  "datePublished": "2025-01-01",
+  "dateModified": buildDate,
+  "inLanguage": lang,
+  "mainEntityOfPage": "https://generatywnie.com/" + lang + "/",
+  "keywords": t('jsonld.keywords'),
+  "citation": [
+    {"@type": "Book", "name": "The Age of Surveillance Capitalism", "author": {"@type": "Person", "name": "Shoshana Zuboff"}},
+    {"@type": "Book", "name": "Du mode d'existence des objets techniques", "author": {"@type": "Person", "name": "Gilbert Simondon"}},
+    {"@type": "Book", "name": "How We Became Posthuman", "author": {"@type": "Person", "name": "N. Katherine Hayles"}}
+  ]
+}, null, 2) %>
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- ── generative seed — runs before first paint ── -->
+<script nonce="<%= nonce %>">
+(function() {
+  var palettes = [
+    ['#BEE8FE','#0D0804'],['#FF9FC7','#0D0804'],['#FABEFE','#0D0804'],
+    ['#FFEE73','#0D0804'],['#7724FF','#FFFFFF'],['#89D6FD','#0D0804'],
+    ['#4D0020','#FFFFFF'],['#D40199','#FFFFFF'],['#F689FD','#0D0804'],
+    ['#FFE100','#0D0804'],['#3C1280','#FFFFFF'],['#185A7B','#FFFFFF'],
+    ['#340016','#FFFFFF'],['#8F096A','#FFFFFF'],['#BE08C9','#FFFFFF']
+  ];
+
+  var fonts = [
+    ['Newsreader', 'Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..400', 400, [300,500], 'Georgia Adjusted'],
+    ['Literata', 'Literata:ital,opsz,wght@0,7..72,300..600;1,7..72,300..400', 400, [300,600], 'Georgia Adjusted'],
+    ['Spectral', 'Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400', 400, [300,500], 'Georgia Adjusted'],
+    ['Alegreya', 'Alegreya:ital,wght@0,400..800;1,400..500', 400, [400,600], 'Georgia Adjusted'],
+    ['Brygada 1918', 'Brygada+1918:ital,wght@0,400..700;1,400..500', 400, [400,600], 'Georgia Adjusted'],
+    ['Fraunces', 'Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..400', 400, [300,500], 'Georgia Adjusted']
+  ];
+
+  var monoFonts = [
+    ['JetBrains Mono', 'JetBrains+Mono:wght@300;400', 'Courier Adjusted'],
+    ['IBM Plex Mono', 'IBM+Plex+Mono:wght@300;400', 'Courier Adjusted'],
+    ['Space Mono', 'Space+Mono:wght@400', 'Courier Adjusted'],
+    ['Source Code Pro', 'Source+Code+Pro:wght@300;400', 'Courier Adjusted']
+  ];
+
+  function h2r(h) {
+    return [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)];
+  }
+  function rgba(rgb, a) { return 'rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+a+')'; }
+  function r() { return Math.random(); }
+
+  var idx = Math.floor(r() * palettes.length);
+  var bg = palettes[idx][0];
+  var fg = palettes[idx][1];
+  var fgRgb = h2r(fg);
+
+  var fi = Math.floor(r() * fonts.length);
+  var mi = Math.floor(r() * monoFonts.length);
+  var font = fonts[fi];
+  var mono = monoFonts[mi];
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=' + font[1] + '&family=' + mono[1] + '&display=swap';
+  document.head.appendChild(link);
+
+  var pSize   = (1.0 + r() * 0.08).toFixed(3);
+  var h1Wt    = Math.round(font[3][0] + r() * (font[3][1] - font[3][0]));
+  var h1Sp    = (-0.025 + r() * 0.015).toFixed(4);
+  var contW   = Math.round(700 + r() * 80);
+  var thSize  = (1.22 + r() * 0.18).toFixed(3);
+
+  var s = document.documentElement.style;
+  s.setProperty('--bg', bg);
+  s.setProperty('--fg', fg);
+  s.setProperty('--rule', rgba(fgRgb, 0.2));
+  s.setProperty('--rule-accent', rgba(fgRgb, 0.5));
+  s.setProperty('--selection-bg', rgba(fgRgb, 0.18));
+  s.setProperty('--serif', "'" + font[0] + "', '" + font[4] + "', serif");
+  s.setProperty('--mono', "'" + mono[0] + "', '" + mono[2] + "', monospace");
+  s.setProperty('--body-wt', font[2]);
+  s.setProperty('--p-size', pSize + 'rem');
+  s.setProperty('--h1-weight', h1Wt);
+  s.setProperty('--h1-spacing', h1Sp + 'em');
+  s.setProperty('--container-w', contW + 'px');
+  s.setProperty('--thesis-size', thSize + 'rem');
+})();
+</script>
+
+<style nonce="<%= nonce %>">
+  :root {
+    --bg: #0a0a0a;
+    --fg: #e8e4df;
+    --rule: #2a2725;
+    --rule-accent: #3a3632;
+    --selection-bg: #3a3632;
+    --p-size: 1.05rem;
+    --h1-weight: 300;
+    --h1-spacing: -0.02em;
+    --container-w: 720px;
+    --thesis-size: 1.3rem;
+    --body-wt: 400;
+    --serif: 'Newsreader', 'Georgia Adjusted', Georgia, serif;
+    --mono: 'JetBrains Mono', 'Courier Adjusted', 'Courier New', monospace;
+  }
+
+  @font-face {
+    font-family: 'Georgia Adjusted';
+    src: local('Georgia');
+    size-adjust: 106%;
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+  }
+
+  @font-face {
+    font-family: 'Courier Adjusted';
+    src: local('Courier New');
+    size-adjust: 92%;
+    ascent-override: 85%;
+    descent-override: 30%;
+    line-gap-override: 0%;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--fg);
+  }
+
+  html {
+    font-size: 19px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--serif);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .container {
+    max-width: var(--container-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  header {
+    padding: 6rem 0 4rem;
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  header.visible {
+    animation: enter 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: var(--h1-weight);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 1.08;
+    letter-spacing: var(--h1-spacing);
+    color: var(--fg);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+
+  .author-line {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--fg);
+  }
+
+  .manifesto-section {
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .manifesto-section.visible {
+    animation: sectionEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .section-number {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--fg);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  p {
+    font-size: var(--p-size);
+    font-weight: var(--body-wt);
+    margin-bottom: 1.4rem;
+    color: var(--fg);
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .thesis,
+  .negative-condition {
+    font-size: var(--thesis-size);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--fg);
+    line-height: 1.5;
+    padding: 2rem 0 2rem 1.8rem;
+    border-left: 2px solid var(--rule-accent);
+    margin: 2rem 0;
+  }
+
+  cite {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--fg);
+    font-style: normal;
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  em { font-style: italic; }
+
+  @keyframes enter {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes sectionEnter {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    header { padding: 4rem 0 3rem; }
+    .container { padding: 0 1.5rem; }
+    .thesis,
+    .negative-condition { padding-left: 1.2rem; font-size: 1.15rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+
+  @media print {
+    body { background: #fff; color: #111; }
+    body::after { display: none; }
+    .manifesto-section { opacity: 1; transform: none; }
+    header { opacity: 1; transform: none; }
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--fg);
+    color: var(--bg);
+    padding: 0.5rem 1rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    z-index: 10000;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+</style>
+
+<noscript>
+<style>
+  header, .manifesto-section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+</style>
+</noscript>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<article>
+<div class="container">
+
+  <header>
+    <p class="subtitle"><%= t('header.subtitle') %></p>
+    <h1><%= t('header.title') %></h1>
+    <address class="author-line">Szymon P. Pepliński</address>
+  </header>
+
+  <main id="main-content">
+
+    <section class="manifesto-section" id="the-loop-as-political-form">
+      <h2><%- t('s01.title') %></h2>
+      <span class="section-number" aria-hidden="true">01</span>
+      <p><%- t('s01.p1') %></p>
+      <p><%- t('s01.p2') %></p>
+      <blockquote class="thesis">
+        <%- t('s01.blockquote') %>
+      </blockquote>
+    </section>
+
+    <section class="manifesto-section" id="divergence-not-variation">
+      <h2><%- t('s02.title') %></h2>
+      <span class="section-number" aria-hidden="true">02</span>
+      <p><%- t('s02.p1') %></p>
+      <p><%- t('s02.p2') %></p>
+      <p><%- t('s02.p3') %></p>
+    </section>
+
+    <section class="manifesto-section" id="metastability-and-initial-conditions">
+      <h2><%- t('s03.title') %></h2>
+      <span class="section-number" aria-hidden="true">03</span>
+      <p><%- t('s03.p1') %></p>
+      <p><%- t('s03.p2') %></p>
+      <p><%- t('s03.p3') %></p>
+    </section>
+
+    <section class="manifesto-section" id="the-refusal-of-memory">
+      <h2><%- t('s04.title') %></h2>
+      <span class="section-number" aria-hidden="true">04</span>
+      <p><%- t('s04.p1') %></p>
+      <p><%- t('s04.p2') %></p>
+      <p><%- t('s04.p3') %></p>
+      <p><%- t('s04.p4') %></p>
+    </section>
+
+    <section class="manifesto-section" id="the-body-in-the-system">
+      <h2><%- t('s05.title') %></h2>
+      <span class="section-number" aria-hidden="true">05</span>
+      <p><%- t('s05.p1') %></p>
+      <p><%- t('s05.p2') %></p>
+      <p><%- t('s05.p3') %></p>
+    </section>
+
+    <section class="manifesto-section" id="the-negative-condition">
+      <h2><%- t('s06.title') %></h2>
+      <span class="section-number" aria-hidden="true">06</span>
+      <p><%- t('s06.p1') %></p>
+      <p><%- t('s06.p2') %></p>
+      <blockquote class="negative-condition">
+        <%- t('s06.blockquote') %>
+      </blockquote>
+      <p><%- t('s06.p3') %></p>
+    </section>
+
+  </main>
+</div>
+</article>
+
+<script nonce="<%= nonce %>">
+(function() {
+  var revealed = false;
+
+  function reveal() {
+    if (revealed) return;
+    revealed = true;
+    var h = document.querySelector('header');
+    if (h) h.classList.add('visible');
+    var sections = document.querySelectorAll('.manifesto-section');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(function(s) { observer.observe(s); });
+  }
+
+  var timeout = setTimeout(reveal, 1500);
+  document.fonts.ready.then(function() {
+    clearTimeout(timeout);
+    reveal();
+  });
+})();
+</script>
+
+</body>
+</html>

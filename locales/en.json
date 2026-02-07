@@ -1,0 +1,63 @@
+{
+  "page.title": "Beyond the Loop — Generatywnie",
+  "page.description": "A critical framework examining generative practices beyond iterative feedback loops. Explores divergence, irreversibility, metastability, and distributed agency as alternatives to optimization-driven design.",
+  "page.keywords": "generative art, algorithmic critique, feedback loops, non-recursive practice, divergence, metastability, distributed agency, operational amnesia",
+
+  "og.title": "Beyond the Loop — A Critical Framework for Non-Recursive Generative Practice",
+  "og.description": "The loop is not a neutral technical structure. It is an epistemic and political form. This framework proposes divergence, irreversibility, and distributed agency as alternatives.",
+  "og.site_name": "Generatywnie",
+  "article.section": "Critical Theory",
+  "article.tags": ["generative art", "algorithmic critique", "non-recursive practice", "distributed agency"],
+
+  "twitter.title": "Beyond the Loop — Generatywnie",
+  "twitter.description": "A Critical Framework for Non-Recursive Generative Practice",
+
+  "jsonld.headline": "Beyond the Loop: A Critical Framework for Non-Recursive Generative Practice",
+  "jsonld.description": "A critical framework examining generative practices beyond iterative feedback loops, exploring themes of divergence, irreversibility, metastability, and distributed agency.",
+  "jsonld.keywords": ["generative art", "algorithmic critique", "feedback loops", "non-recursive practice", "divergence", "metastability", "distributed agency", "operational amnesia"],
+
+  "header.subtitle": "A Critical Framework for Non-Recursive Generative Practice",
+  "header.title": "Beyond the Loop",
+
+  "s01.title": "The Loop as Political Form",
+  "s01.p1": "Contemporary generative practices—across art, design, and technology—operate almost exclusively within the logic of the loop. Iteration. Feedback. Optimization. This triad, examined in the context of data capitalism by Shoshana Zuboff, in the analytics of fatigue by Byung-Chul Han, and in the critique of algorithmic homogenization by Kyle Chayka, rests on a single assumption: that generativity is a matter of continuous refinement, prediction, and repetition.",
+  "s01.p2": "This critical framework rejects that assumption as insufficient.",
+  "s01.blockquote": "The loop is not a neutral technical structure. It is an epistemic and political form—an instrument for stabilizing meaning, behavior, and aesthetics. Every feedback cycle is an act of closure: a reduction of possibility to what the system already recognizes.",
+
+  "s02.title": "Divergence, Not Variation",
+  "s02.p1": "Practices situated beyond the loop do not aim to reproduce or scale outcomes. Their defining operation is not variation—the production of versions within a recognizable field—but <strong>divergence</strong>: trajectories that move irreversibly away from their point of origin.",
+  "s02.p2": "Here, generativity ceases to mean the production of forms. It becomes <strong>the activation of processes whose unfolding remains partially indeterminate and irreversible</strong>. Each system update constitutes a singular event—not a repeatable iteration, but a point from which there is no return.",
+  "s02.p3": "Variation is an economy. Divergence is an ontology.",
+
+  "s03.title": "Metastability and Initial Conditions",
+  "s03.p1": "The role of the creator shifts: from author to <strong>designer of initial conditions</strong>. But initial conditions are not parameter configuration. They are the deliberate introduction of the system into a state of <strong>metastability</strong>—an energetic tension that must discharge, but whose direction of discharge is not predetermined. <cite>→ Gilbert Simondon, Du mode d'existence des objets techniques</cite>",
+  "s03.p2": "Intention does not disappear. It loses its sovereign position. The creator designs potential—not outcome. Once activated, the system operates as a relational configuration: code, environment, time, and viewer presence co-produce an event that none of them controls alone. <cite>→ N. Katherine Hayles, How We Became Posthuman</cite>",
+  "s03.p3": "This framework rejects the \"human versus machine\" opposition—from Kasparov to Tegmark—in favor of <strong>distributed agency</strong>, where the question \"who is the author?\" gives way to the question \"what just happened here?\".",
+
+  "s04.title": "The Refusal of Memory",
+  "s04.p1": "The most radical dimension of this position is the <strong>refusal of memory</strong>.",
+  "s04.p2": "Feed-based and adaptive systems—those critiqued by Douglas Rushkoff and James Williams—learn the user. They optimize response. They accumulate data to close the loop: to predict what you will do before you do it. This is not intelligence. It is prejudice encoded in architecture.",
+  "s04.p3": "Practices beyond the loop do not learn. They do not remember. <strong>The absence of feedback is a constitutive condition, not a technical limitation.</strong> A system that does not know what it just did is a system that cannot repeat. And a system that cannot repeat cannot dominate. Systems can dominate through scale, intensity, or structural position—but only the loop allows them to dominate imperceptibly, through the very architecture of repetition.",
+  "s04.p4": "This is a claim about the politics of memory: every model carries the compressed memory of its dataset. Every inference leaves a trace in the logs. Operational amnesia—the system's capacity to forget in real time—is an act of resistance against the logic of extraction.",
+
+  "s05.title": "The Body in the System",
+  "s05.p1": "This framework would be incomplete without a phenomenology of presence.",
+  "s05.p2": "The irreversibility and singularity of a generative event are not abstractions—they are <strong>experienced</strong>. A person standing before a system that responds to their presence, movement, body heat knows—somatically, pre-linguistically—that what they see will not repeat. That the system is not performing for an audience. That the response is exactly as fragile and transient as the moment of encounter itself.",
+  "s05.p3": "It is the viewer's body that completes the relation. Not as an \"interactor\" in the logic of HCI, but as <strong>an element of the configuration</strong>—one whose mere presence alters the course of the event. Generativity beyond the loop does not produce objects to be viewed. It produces <strong>situations in which one is present</strong>.",
+
+  "s06.title": "The Negative Condition",
+  "s06.p1": "This framework does not prescribe a new style. It does not propose a new aesthetic. It does not prescribe action—it describes the conditions under which action becomes irreversible.",
+  "s06.p2": "It proposes a <strong>negative condition</strong>:",
+  "s06.blockquote": "What emerges cannot be repeated, reversed, or confirmed.",
+  "s06.p3": "Rather than representing the algorithmic world, it operates within a world <strong>after the loop</strong>—unstable, procedural, and fundamentally open. A world in which the only evidence that an event took place is the fact that someone was there.",
+
+  "llms.overview": "This manifesto examines generative practices—across art, design, and technology—that operate beyond the logic of iterative feedback loops. It challenges the assumption that generativity equals continuous refinement and optimization, proposing instead frameworks based on divergence, irreversibility, and distributed agency.",
+  "llms.thesis1": "**The loop is a political form.** Not a neutral technical structure, but an epistemic instrument for stabilizing meaning, behavior, and aesthetics. Every feedback cycle is an act of closure.",
+  "llms.thesis2": "**Divergence, not variation.** Generativity beyond the loop means processes whose unfolding remains partially indeterminate and irreversible. Variation is an economy. Divergence is an ontology.",
+  "llms.thesis3": "**Designer of initial conditions.** The creator shifts from author to designer of metastable conditions—energetic tensions whose direction of discharge is not predetermined.",
+  "llms.thesis4": "**The refusal of memory.** The absence of feedback is constitutive, not a limitation. A system that cannot repeat cannot dominate. Operational amnesia is resistance against the logic of extraction.",
+  "llms.thesis5": "**The body in the system.** Irreversibility and singularity are experienced somatically. The viewer's body completes the relation as an element of the configuration.",
+  "llms.thesis6": "**The negative condition.** What emerges cannot be repeated, reversed, or confirmed.",
+  "llms.concepts": "- **The Loop**: Epistemic and political form used to stabilize meaning through feedback cycles\n- **Divergence**: Irreversible trajectories away from origin, contrasted with variation\n- **Metastability**: Energetic tension in initial conditions with undetermined discharge direction\n- **Distributed Agency**: Relational configuration where no single actor controls outcomes\n- **Operational Amnesia**: System's capacity to forget in real time as resistance against extraction\n- **Phenomenology of Presence**: Experiential dimension of singular, irreversible generative events",
+  "llms.relevance": "This work is relevant to discussions of: generative art, algorithmic critique, non-recursive creative practices, feedback loops in technology, distributed agency, posthuman systems, metastability, memory and domination, phenomenology of human-machine encounters."
+}
